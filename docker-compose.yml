@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+
+  code-server:
+    container_name: code-server
+    image: ./
+    restart: always
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Moscow
+      - SUDO_PASSWORD=1234
+      - DEFAULT_WORKSPACE=/config/workspace
+    volumes:
+      - ./volume/code-server/config:/config
+    ports:
+      - 9001:8443
