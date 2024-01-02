@@ -1,10 +1,7 @@
 FROM lscr.io/linuxserver/code-server:4.20.0
 
 RUN sudo apt update
-RUN sudo apt install -y build-essential vim
-
-# Install "n", the node.js version manager
-RUN curl -L https://git.io/n-install | bash -s -- -y lts latest
+RUN sudo apt install -y build-essential vim nodejs npm
 
 # This is needed for the PATH line to work
 SHELL ["/bin/bash", "-c"]
