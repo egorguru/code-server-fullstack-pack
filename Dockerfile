@@ -1,7 +1,7 @@
 FROM lscr.io/linuxserver/code-server:4.20.0
 
 RUN sudo apt update
-RUN sudo apt install -y build-essential vim nodejs npm
+RUN sudo apt install -y build-essential vim tig nodejs npm golang
 
 # This is needed for the PATH line to work
 SHELL ["/bin/bash", "-c"]
