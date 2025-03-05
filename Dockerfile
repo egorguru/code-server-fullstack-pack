@@ -3,7 +3,7 @@ FROM lscr.io/linuxserver/code-server:4.97.2
 RUN sudo apt update
 RUN sudo apt install -y \
   build-essential libxtst-dev libpng++-dev curl \
-  vim tig nodejs npm golang
+  vim tig nodejs npm golang-go
 
 # This is needed for the PATH line to work
 SHELL ["/bin/bash", "-c"]
