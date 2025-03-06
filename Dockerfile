@@ -9,4 +9,5 @@ RUN sudo apt install -y \
 SHELL ["/bin/bash", "-c"]
 
 # Use 'cache --timeout 900' instead of 'store' to cache git user only for 15 minutes
-RUN git config --global credential.helper 'store' && git config --global core.editor "vim"
+RUN git config --global credential.helper 'store'
+RUN git config --global core.editor "vim"
