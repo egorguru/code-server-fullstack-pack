@@ -2,7 +2,7 @@ FROM lscr.io/linuxserver/code-server:4.98.2
 
 RUN sudo apt update
 RUN sudo apt install -y \
-  build-essential libxtst-dev libpng++-dev curl wget \
+  build-essential libxtst-dev libpng++-dev libssl-dev pkg-config curl wget \
   vim tig
 
 # This is needed for the PATH line to work
