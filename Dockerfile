@@ -25,7 +25,8 @@ RUN nvm install 22
 
 # Install Rust
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-ENV PATH=$PATH:/root/.cargo/bin
+RUN source $HOME/.cargo/env
+ENV PATH=$PATH:$HOME/.cargo/bin
 
 # Use 'cache --timeout 900' instead of 'store' to cache git user only for 15 minutes
 RUN git config --global credential.helper 'store'
