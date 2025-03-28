@@ -22,6 +22,10 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | P
 RUN echo node > .nvmrc
 RUN nvm install 22
 
+# Install Rust
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+ENV PATH $PATH:/root/.cargo/bin
+
 # Use 'cache --timeout 900' instead of 'store' to cache git user only for 15 minutes
 RUN git config --global credential.helper 'store'
 RUN git config --global core.editor "vim"
