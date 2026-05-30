@@ -9,7 +9,7 @@ RUN sudo apt install -y \
 SHELL ["/bin/bash", "-c"]
 
 # Install Golang
-ENV GO_VERSION=1.24.1
+ENV GO_VERSION=1.26.3
 RUN wget -c https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz && \
   tar -C /usr/local/ -xzf go${GO_VERSION}.linux-amd64.tar.gz && \
   rm go${GO_VERSION}.linux-amd64.tar.gz
