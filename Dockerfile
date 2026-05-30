@@ -1,4 +1,4 @@
-FROM lscr.io/linuxserver/code-server:4.98.2
+FROM lscr.io/linuxserver/code-server:4.122.0
 
 RUN sudo apt update
 RUN sudo apt install -y \
