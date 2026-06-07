@@ -9,7 +9,7 @@ RUN sudo apt install -y \
 SHELL ["/bin/bash", "-c"]
 
 # Install Golang
-ENV GO_VERSION=1.26.3
+ENV GO_VERSION=1.26.4
 RUN wget -c https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz && \
   tar -C /usr/local/ -xzf go${GO_VERSION}.linux-amd64.tar.gz && \
   rm go${GO_VERSION}.linux-amd64.tar.gz
@@ -19,7 +19,7 @@ ENV PATH=$PATH:/usr/local/go/bin
 ENV BASH_ENV=/config/.bash_env
 RUN touch "${BASH_ENV}"
 RUN echo '. "${BASH_ENV}"' >> ~/.bashrc
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | PROFILE="${BASH_ENV}" bash
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.5/install.sh | PROFILE="${BASH_ENV}" bash
 RUN echo node > .nvmrc
 RUN nvm install 26
 
