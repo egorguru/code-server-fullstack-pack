@@ -1,4 +1,4 @@
-FROM lscr.io/linuxserver/code-server:4.122.0
+FROM lscr.io/linuxserver/code-server:4.123.0
 
 RUN sudo apt update
 RUN sudo apt install -y \
@@ -15,18 +15,8 @@ RUN wget -c https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz && \
   rm go${GO_VERSION}.linux-amd64.tar.gz
 ENV PATH=$PATH:/usr/local/go/bin
 
-# Install NVM
-ENV BASH_ENV=/config/.bash_env
-RUN touch "${BASH_ENV}"
-RUN echo '. "${BASH_ENV}"' >> ~/.bashrc
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.5/install.sh | PROFILE="${BASH_ENV}" bash
-RUN echo node > .nvmrc
-RUN nvm install 26
-
-# Install Rust
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-RUN source $HOME/.cargo/env
-ENV PATH=$PATH:$HOME/.cargo/bin
+# Install Node.js
+RUN curl -fsSL https://deb.nodesource.com/setup_26.x | bash - && apt-get install -y nodejs
 
 # Use 'cache --timeout 900' instead of 'store' to cache git user only for 15 minutes
 RUN git config --global credential.helper 'store'
